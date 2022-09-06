@@ -17,6 +17,7 @@ export const Layout = ({ children }:React.PropsWithChildren<{}>) => {
 
 const Wrapper = styled.section`
   @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,300&display=swap" rel="stylesheet");
+  @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100;300;500;700&display=swap" rel="stylesheet");
   background-color: #B2AFE580;
 `;
 
