@@ -1,8 +1,21 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
+import Head from 'next/head';
+import { Layout } from '../src/components/Layout'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Head>
+        <title>Office Finder</title>
+        <meta name="description" content="Find your new office" />
+        <link rel="icon" href="/images/worker_purple.png" />
+      </Head>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
+  )
 }
 
 export default MyApp
