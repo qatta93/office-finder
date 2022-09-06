@@ -3,15 +3,15 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Maps: NextPage = () => {
+const Contact: NextPage = () => {
   return (
     <Section>
-        <p>Maps</p>
+        <p>Contact</p>
     </Section>
   )
 }
 
-export default Maps;
+export default Contact;
 
 const Section = styled.section`
   padding: 0.5rem;
