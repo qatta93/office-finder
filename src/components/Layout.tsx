@@ -1,6 +1,6 @@
 import React from 'react';
-import { Navbar } from './Navbar';
-import { Footer } from './Footer';
+import { NavbarSection } from './NavbarSection';
+import { FooterSection } from './FooterSection';
 import styled from 'styled-components';
 
 export const Layout = ({ children }:React.PropsWithChildren<{}>) => {
@@ -8,14 +8,18 @@ export const Layout = ({ children }:React.PropsWithChildren<{}>) => {
 
   return (
     <Wrapper>
-      <Navbar />
-      <main>{children}</main>
-      <Footer />
+      <NavbarSection />
+      <Main>{children}</Main>
+      <FooterSection />
     </Wrapper>
   )
 }
 
 const Wrapper = styled.section`
-  padding: 4em;
-  background: papayawhip;
+  @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,300&display=swap" rel="stylesheet");
+  background-color: #B2AFE580;
 `;
+
+const Main = styled.section`
+  min-height: 83vh;
+`
