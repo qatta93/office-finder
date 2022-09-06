@@ -17,7 +17,7 @@ export const NavbarSection = () => {
 }
 
 const Navbar = styled.section`
-  min-height: 8vh;
+  height: 10vh;
   display: flex;
   flex-direction: row;
   border-bottom: 1.5px solid white;

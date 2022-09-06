@@ -16,11 +16,10 @@ export const Layout = ({ children }:React.PropsWithChildren<{}>) => {
 }
 
 const Wrapper = styled.section`
-  @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,300&display=swap" rel="stylesheet");
-  @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100;300;500;700&display=swap" rel="stylesheet");
-  background-color: #B2AFE580;
+  @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100;300;500;700&family=Cormorant+Garamond:wght@400;600&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet");
+  background-color: #B2AFE5;
 `;
 
 const Main = styled.section`
-  min-height: 83vh;
+  min-height: 82vh;
 `

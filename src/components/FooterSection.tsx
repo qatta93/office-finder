@@ -12,7 +12,7 @@ export const FooterSection = () => {
 
 const Footer = styled.section`
   background-color: #ffffff70;
-  min-height: 8vh;
+  height: 8vh;
   vertical-align: middle;
   display: flex;
   justify-content: center;
