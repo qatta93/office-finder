@@ -3,4 +3,5 @@
 
 - Are you traveling?
 - Don't you have a comfy desk at home?
+
 This app is for you! Different locations. Find the closest one.
