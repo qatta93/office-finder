@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import styled from 'styled-components';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Home: NextPage = () => {
   return (
@@ -9,8 +10,11 @@ const Home: NextPage = () => {
         <h1>Are you traveling?</h1>
         <h2>Do you need a comfy desk?</h2>
         <p>find your new office close to you!</p>
-        <Image src='/images/Group 2.png' width='180px' height='60px' alt='btn'></Image>
+        <Link href="/maps">
+          <Image src='/images/btn.png' width='180px' height='60px' alt='btn'></Image>
+        </Link>
       </Title>
+        
 
     </Section>
   )
@@ -20,7 +24,7 @@ export default Home
 
 
 const Section = styled.section`
-  min-height: 82vh;
+  padding: 0.5rem;
 `
 
 const Title = styled.section`
@@ -30,7 +34,7 @@ const Title = styled.section`
 
   h1 {
     font-size: 32px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0rem;
     color: #E1FDFF;
   }
 
@@ -43,6 +47,6 @@ const Title = styled.section`
     color: white;
     font-size: 1.2rem;
     font-weight: 100;
-    margin: 3rem 0;
+    margin: 2rem 0;
   }
 `
