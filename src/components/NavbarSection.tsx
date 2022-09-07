@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import Image from 'next/image';
 
 export const NavbarSection = () => {
+  const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
+
+  function handleResize() {
+    setWindowWidth(window.innerWidth);
+  }
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      handleResize()
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
+
+
   return (
     <Navbar>
       <section>
@@ -10,7 +25,15 @@ export const NavbarSection = () => {
         <h1>Office Finder</h1>
       </section>
       <Menu>
-        <Image src='/images/menu.png' width='45px' height='45px' alt='menu'/>
+        {windowWidth && windowWidth > 575 ? 
+          <>
+            <a href="/maps">MAPS</a>
+            <a href="/maps">ABOUT</a>
+            <a href="/maps">CONTACT</a>
+          </>
+          :
+          <Image src='/images/menu.png' width='45px' height='45px' alt='menu'/>
+        }
       </Menu>
     </Navbar>
   )
@@ -46,5 +69,13 @@ const Menu = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
+  a {
+    text-decoration: none;
+    color: white;
+    margin-left: 1.3rem;
+    border: 1px solid #ffffff40;
+    padding: 0.4rem 0.5rem;
+    cursor: pointer;
+  }
 `
