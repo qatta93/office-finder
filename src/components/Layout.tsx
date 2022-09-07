@@ -17,8 +17,10 @@ export const Layout = ({ children }:React.PropsWithChildren<{}>) => {
 
 const Wrapper = styled.section`
   background-color: #B2AFE5;
+  min-height: 100vh;
+  position: relative;
 `;
 
 const Main = styled.section`
-  min-height: 83vh;
+
 `

@@ -17,7 +17,7 @@ export const NavbarSection = () => {
 }
 
 const Navbar = styled.section`
-  height: 9vh;
+  height: 60px;
   display: flex;
   flex-direction: row;
   border-bottom: 1.5px solid white;
@@ -28,7 +28,7 @@ const Navbar = styled.section`
   section {
     display: flex;
     flex-direction: row;
-    padding-top: 1vh;
+    padding-top: 7px;
 
     h1 {
       color: white;

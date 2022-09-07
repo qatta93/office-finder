@@ -1,21 +1,31 @@
 import type { NextPage } from 'next'
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components'
 import Image from 'next/image';
 import Link from 'next/link';
 import Spline from '@splinetool/react-spline';
+import { useRouter } from 'next/router'
 
 const Home: NextPage = () => {
+
+  const router = useRouter()
+
+  function onBtnClickHandle(){
+    console.log('its working')
+    setTimeout(function(){ 
+      router.push({
+        pathname: '/maps',
+      })
+ }, 1000);
+}
   return (
     <Section>
       <Title>
         <h1>Are you traveling?</h1>
         <h2>Do you need a comfy desk?</h2>
         <p>find your new office close to you!</p>
-        <Link href="/maps">
-          <StyledButton>
-            <p>CHECK D<span><Image src='/images/desk.png' width='22px' height='38px' alt='desk'></Image></span>SK OUT</p>
-          </StyledButton>
-        </Link>
+        <StyledButton onClick={() => onBtnClickHandle()}>
+          <p>CHECK D<span><Image src='/images/desk.png' width='22px' height='38px' alt='desk'></Image></span>SK OUT</p>
+        </StyledButton>
       </Title>
       <Animation>
         <Spline scene="https://prod.spline.design/zdiY1j0MFRfdisjV/scene.splinecode" />
@@ -68,10 +78,6 @@ const StyledButton = styled.section`
   cursor: pointer;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   
-  &:hover {
-  transform: scale(1.08);
-  }
-
   p {
     font-family: 'Antonio', sans-serif;
     font-size: 1.5rem;
@@ -84,7 +90,10 @@ const StyledButton = styled.section`
         top: 9px;
       }
     }
+  }
 
+  &:hover {
+    transform: scale(1.08);
   }
 
 `
