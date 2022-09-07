@@ -10,14 +10,14 @@ export const NavbarSection = () => {
         <h1>Office Finder</h1>
       </section>
       <Menu>
-        <Image src='/images/menu.png' width='50px' height='50px' alt='menu'/>
+        <Image src='/images/menu.png' width='45px' height='45px' alt='menu'/>
       </Menu>
     </Navbar>
   )
 }
 
 const Navbar = styled.section`
-  height: 10vh;
+  height: 9vh;
   display: flex;
   flex-direction: row;
   border-bottom: 1.5px solid white;
@@ -34,8 +34,8 @@ const Navbar = styled.section`
       color: white;
       font-family: 'Antonio', sans-serif;
       font-weight: 100;
-      font-size: 1.1rem;
-      margin-left: 1rem;
+      font-size: 1.7rem;
+      margin: auto 1rem;
     }
   }
 `

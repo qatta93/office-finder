@@ -12,7 +12,9 @@ const Home: NextPage = () => {
         <h2>Do you need a comfy desk?</h2>
         <p>find your new office close to you!</p>
         <Link href="/maps">
-          <Image src='/images/btn.png' width='180px' height='60px' alt='btn'></Image>
+          <StyledButton>
+            <p>CHECK D<span><Image src='/images/desk.png' width='22px' height='38px' alt='desk'></Image></span>SK OUT</p>
+          </StyledButton>
         </Link>
       </Title>
       <Animation>
@@ -50,10 +52,41 @@ const Title = styled.section`
 
   p {
     color: #FFFFFF;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 100;
     margin: 2rem 0;
   }
+`
+
+const StyledButton = styled.section`
+  position: relative;
+  height: 60px;
+  width: 180px;
+  margin: 0 auto;
+  border-radius: 3px;
+  background-color: #49494935;
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  
+  &:hover {
+  transform: scale(1.08);
+  }
+
+  p {
+    font-family: 'Antonio', sans-serif;
+    font-size: 1.5rem;
+    margin: 0;
+
+    span{
+      margin: 0 0.02rem 0 0.05rem;
+
+      &>* {
+        top: 9px;
+      }
+    }
+
+  }
+
 `
 
 const Animation = styled.section`

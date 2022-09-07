@@ -20,5 +20,5 @@ const Wrapper = styled.section`
 `;
 
 const Main = styled.section`
-  min-height: 82vh;
+  min-height: 83vh;
 `

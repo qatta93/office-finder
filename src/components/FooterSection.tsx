@@ -11,7 +11,7 @@ export const FooterSection = () => {
 }
 
 const Footer = styled.section`
-  background-color: #ffffff70;
+  background-color: #ffffff95;
   height: 8vh;
   vertical-align: middle;
   display: flex;
@@ -23,6 +23,11 @@ const Footer = styled.section`
     font-style: italic;
   }
   a {
-    font-weight: 600;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+    color: #8783d7;
+    margin: 0 0.2rem;
+    font-size: 1.05rem;
   }
 `
