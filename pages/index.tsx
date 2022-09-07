@@ -18,7 +18,6 @@ const Home: NextPage = () => {
       <Animation>
         <Spline scene="https://prod.spline.design/zdiY1j0MFRfdisjV/scene.splinecode" />
       </Animation>
-
     </Section>
   )
 }
@@ -36,18 +35,21 @@ const Title = styled.section`
   font-size: 28px;
 
   h1 {
-    font-size: 32px;
+    font-size: 34px;
     margin-bottom: 0rem;
     color: #E1FDFF;
+    font-weight: 500;
   }
 
   h2 {
-    font-size: 24px;
+    font-size: 25px;
     color: #E1FDFF;
+    font-weight: 500;
+    margin-top: 0.6rem;
   }
 
   p {
-    color: white;
+    color: #FFFFFF;
     font-size: 1.2rem;
     font-weight: 100;
     margin: 2rem 0;
