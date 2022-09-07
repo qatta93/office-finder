@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
+import Spline from '@splinetool/react-spline';
 
 const Home: NextPage = () => {
   return (
@@ -14,7 +15,9 @@ const Home: NextPage = () => {
           <Image src='/images/btn.png' width='180px' height='60px' alt='btn'></Image>
         </Link>
       </Title>
-        
+      <Animation>
+        <Spline scene="https://prod.spline.design/zdiY1j0MFRfdisjV/scene.splinecode" />
+      </Animation>
 
     </Section>
   )
@@ -24,7 +27,7 @@ export default Home
 
 
 const Section = styled.section`
-  padding: 0.5rem;
+
 `
 
 const Title = styled.section`
@@ -49,4 +52,8 @@ const Title = styled.section`
     font-weight: 100;
     margin: 2rem 0;
   }
+`
+
+const Animation = styled.section`
+
 `
