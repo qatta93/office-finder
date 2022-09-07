@@ -1,11 +1,25 @@
 import type { NextPage } from 'next'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import Image from 'next/image';
-import Link from 'next/link';
 import Spline from '@splinetool/react-spline';
 import { useRouter } from 'next/router'
+import React, { useEffect, useState } from 'react'
 
 const Home: NextPage = () => {
+
+  const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
+
+  function handleResize() {
+    setWindowWidth(window.innerWidth);
+  }
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      handleResize()
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
 
   const router = useRouter()
 
@@ -38,13 +52,22 @@ export default Home
 
 
 const Section = styled.section`
+  overflow: hidden;
+  min-height: 70vh;
 
+  @media only screen and (min-width: 1024px) {
+    display: flex;
+    flex-direction: row;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    min-height: 82vh;
+  }
 `
 
 const Title = styled.section`
   font-family: 'Open Sans', sans-serif;
   text-align: center;
-  font-size: 28px;
 
   h1 {
     font-size: 34px;
@@ -65,6 +88,44 @@ const Title = styled.section`
     font-size: 1.1rem;
     font-weight: 100;
     margin: 2rem 0;
+  }
+
+  @media only screen and (min-width: 768px) {
+    h1 {
+      font-size: 45px;
+    }
+  
+    h2 {
+      font-size: 28px;
+      margin-top: 1rem;
+    }
+  
+    p {
+      font-size: 1.2rem;
+      margin: 3rem 0;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    flex: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 7rem;
+
+    h1 {
+      font-size: 40px;
+    }
+  
+    h2 {
+      font-size: 24px;
+      margin-top: 1rem;
+    }
+  
+    p {
+      font-size: 1.2rem;
+      margin: 3rem 0;
+    }
   }
 `
 
@@ -99,5 +160,36 @@ const StyledButton = styled.section`
 `
 
 const Animation = styled.section`
+  padding: 2rem 0;
+  height: 300px;
+  position: relative;
 
+  &>* {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media only screen and (min-width: 768px) {
+    height: 450px;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    flex: 55%;
+
+    &>* {
+      top: 45%;
+      left: 60%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  @media only screen and (min-width: 1200px) {
+
+    &>* {
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
 `

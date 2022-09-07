@@ -1,11 +1,11 @@
 import '../styles/global.css.ts'
 import type { AppProps } from 'next/app'
-import Head from 'next/head';
 import { Layout } from '../src/components/Layout'
 import GlobalCSS from '../styles/global.css'
 import {Helmet} from "react-helmet";
 
 function MyApp({ Component, pageProps }: AppProps) {
+
   return (
     <>
       <Helmet>
@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Helmet>
       <Layout>
         <GlobalCSS />
-        <Component {...pageProps} />
+        <Component {...pageProps}/>
       </Layout>
     </>
   )
