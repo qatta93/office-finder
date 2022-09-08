@@ -21,8 +21,8 @@ export const NavbarSection = () => {
   return (
     <Navbar>
       <section>
-        <Image src='/images/worker_white.png' width='60px' height='50px' alt='logo'/>
-        <h1>Office Finder</h1>
+        <Link href="/"><Image src='/images/worker_white.png' width='60px' height='50px' alt='logo'/></Link>
+        <Link href="/"><h1>Office Finder</h1></Link>
       </section>
       <Menu>
         {windowWidth && windowWidth > 575 ? 
