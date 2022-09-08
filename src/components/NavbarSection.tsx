@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const NavbarSection = () => {
   const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
@@ -26,9 +27,9 @@ export const NavbarSection = () => {
       <Menu>
         {windowWidth && windowWidth > 575 ? 
           <>
-            <a href="/maps">MAPS</a>
-            <a href="/maps">ABOUT</a>
-            <a href="/maps">CONTACT</a>
+            <Link href="/maps">MAPS</Link>
+            <Link href="/about">ABOUT</Link>
+            <Link href="/contact">CONTACT</Link>
           </>
           :
           <Image src='/images/menu.png' width='45px' height='45px' alt='menu'/>
