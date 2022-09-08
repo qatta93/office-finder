@@ -7,20 +7,6 @@ import React, { useEffect, useState } from 'react'
 
 const Home: NextPage = () => {
 
-  const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
-
-  function handleResize() {
-    setWindowWidth(window.innerWidth);
-  }
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      handleResize()
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }
-  }, []);
-
   const router = useRouter()
 
   function onBtnClickHandle(){
