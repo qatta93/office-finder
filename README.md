@@ -7,6 +7,10 @@
 This app is for you! Different locations. Find the closest one.
 
 ## Technologies Used
+
+### Design
+- Figma
+
 ### Front-end
 - TypeScript
 - Next.js
