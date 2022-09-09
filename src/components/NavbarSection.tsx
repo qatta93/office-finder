@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState} from 'react'
 import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export const NavbarSection = () => {
+type Props = {
+  setMenuPopup: (menuPopup: boolean) => void;
+  menuPopup: boolean
+}
+
+export const NavbarSection = ({setMenuPopup, menuPopup}:Props) => {
   const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
 
   function handleResize() {
@@ -32,7 +37,7 @@ export const NavbarSection = () => {
             <Link href="/contact">CONTACT</Link>
           </>
           :
-          <Image src='/images/menu.png' width='45px' height='45px' alt='menu'/>
+          <Image src='/images/menu.png' width='45px' height='45px' alt='menu' onClick={() => setMenuPopup(!menuPopup)}/>
         }
       </Menu>
     </Navbar>

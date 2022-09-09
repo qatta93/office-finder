@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavbarSection } from './NavbarSection';
 import { FooterSection } from './FooterSection';
 import styled from 'styled-components';
 
 export const Layout = ({ children }:React.PropsWithChildren<{}>) => {
 
+  const [menuPopup, setMenuPopup] = useState<boolean>(false);
+
+  console.log(menuPopup)
 
   return (
     <Wrapper>
-      <NavbarSection />
+      <NavbarSection menuPopup={menuPopup} setMenuPopup={setMenuPopup}/>
       <Main>{children}</Main>
       <FooterSection />
     </Wrapper>

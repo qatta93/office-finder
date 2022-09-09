@@ -5,3 +5,16 @@
 - Don't you have a comfy desk at home?
 
 This app is for you! Different locations. Find the closest one.
+
+## Technologies Used
+### Front-end
+- TypeScript
+- Next.js
+- Styled Components
+- Spline 3D Design Tool
+
+### Deployment and hosting
+- Vercel
+
+## Screenshots
+<img src="./screenshots/mobile.png" width="200">
