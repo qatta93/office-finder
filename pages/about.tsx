@@ -2,18 +2,32 @@ import type { NextPage } from 'next'
 import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 const About: NextPage = () => {
+  const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
+
+  function handleResize() {
+    setWindowWidth(window.innerWidth);
+  }
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      handleResize()
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
+  
   return (
     <Section>
         <h1>ABOUT</h1>
         <Wrapper>
           <Notepad>
-            <Image src='/images/notepad.png' alt='notepad' width='400px' height='400px' className='notebook__img'></Image>
+            <Image src='/images/notepad.png' alt='notepad' width='300px' height='300px' className='notebook__img'></Image>
             <p>Office Finder can help you with finding comfortable space to work! Are you traveling? Don't you have a comfy desk at home? Check our <Link href='/maps' className='link'>maps</Link> to find offices close to you.</p>
           </Notepad>
-          {/* <Image src='/images/designer.png'  alt='designer' width='400px' height='400px' className='designer__img'></Image> */}
-
+          {windowWidth && windowWidth > 1023 && <Image src='/images/designer.png'  alt='designer' width='300px' height='300px' className='designer__img'></Image>}
         </Wrapper>
     </Section>
   )
@@ -37,13 +51,16 @@ const Section = styled.section`
 `
 const Wrapper = styled.section`
 .designer__img {
-  display: none;
-  
+    opacity: 0.5;
 }
 
 @media only screen and (min-width: 1024px) {
   display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 2rem;
+  height: calc(100vh - 257px);
 }
+
 `
 
 const Notepad = styled.section`
@@ -53,14 +70,13 @@ const Notepad = styled.section`
   align-items: center;
   justify-content: center;
 
+
   @media only screen and (min-width: 578px) {
     margin-top: 4rem;
   }
   @media only screen and (min-width: 1024px) {
     margin-top: 0rem;
     .notebook__img {
-      background-color: red;
-      
     }
   }
 
@@ -89,6 +105,10 @@ const Notepad = styled.section`
     }
     @media only screen and (min-width: 768px) {
       left: 49%;
+    }
+    @media only screen and (min-width: 1024px) {
+      font-size: 1rem;
+      width: 200px
     }
 
     &>* {
