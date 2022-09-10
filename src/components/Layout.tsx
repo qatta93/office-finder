@@ -10,17 +10,22 @@ export const Layout = ({ children }:React.PropsWithChildren<{}>) => {
 
   console.log(menuPopup)
 
+  const handleMenuClick = () => {
+    setTimeout(function() {
+      setMenuPopup(false);
+  }, 500);
+  }
+
   return (
     <Wrapper>
       <NavbarSection menuPopup={menuPopup} setMenuPopup={setMenuPopup}/>
-      {/* @ts-ignore */}
       <Main>
         <Menu className={menuPopup === true ? 'showMenu' : 'hideMenu'}>
           <MenuBtns className={menuPopup === true ? 'showMenuBtns' : 'hideMenuBtns'}>
-            <Link href='/'>HOME</Link>
-            <Link href='/maps'>MAPS</Link>
-            <Link href='/about'>ABOUT</Link>
-            <Link href='/contact'>CONTACT</Link>
+            <Link href='/'><button onClick={() => handleMenuClick()}>HOME</button></Link>
+            <Link href='/maps'><button onClick={() => handleMenuClick()}>MAPS</button></Link>
+            <Link href='/about'><button onClick={() => handleMenuClick()}>ABOUT</button></Link>
+            <Link href='/contact'><button onClick={() => handleMenuClick()}>CONTACT</button></Link>
           </MenuBtns>
           {children}
         </Menu>
@@ -53,7 +58,7 @@ const Main = styled.section`
 
     > * {
       &:last-child {
-         opacity: 0.2;
+         opacity: 0.1;
       }
     }
     } 
@@ -69,6 +74,8 @@ const Menu = styled.section`
     display: flex;
     flex-direction: column;
     text-align: center;
+    z-index: 1;
+
     
     &>* {
       text-decoration: none;
@@ -77,6 +84,8 @@ const Menu = styled.section`
       padding: 0.5rem 1rem;
       background-color: white;
       cursor: pointer;
+      font-size: 1.1rem;
+      color: #827dd8;
     }
 
   }

@@ -58,6 +58,10 @@ const Navbar = styled.section`
     flex-direction: row;
     padding-top: 7px;
 
+    &>* {
+      cursor: pointer;
+    }
+
     h1 {
       color: white;
       font-family: 'Antonio', sans-serif;
