@@ -5,6 +5,7 @@
 - Don't you have a comfy desk at home?
 
 This app is for you! Different locations. Find the closest one.
+The app is hosted in Vercel [_Check it out._](https://office-finder-qatta93.vercel.app/)
 
 ## Technologies Used
 
@@ -22,3 +23,6 @@ This app is for you! Different locations. Find the closest one.
 
 ## Screenshots
 <img src="./screenshots/mobile.png" width="200">
+
+## Project Status
+The project is currently on progress, and some additional features will be included in the future.
