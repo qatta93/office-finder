@@ -3,9 +3,25 @@ import styled from 'styled-components'
 import Image from 'next/image';
 import Spline from '@splinetool/react-spline';
 import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import React, { lazy, Suspense, useEffect, useState } from 'react'
+import Spinner from '../src/components/Loading';
+import dynamic from "next/dynamic";
+import LazyComponent from '../src/components/LazyComponent';
 
 const Home: NextPage = () => {
+
+  const [splineLoad, setSplineLoad] = useState<boolean>(false);
+  const [showFallback, setShowFallback] = useState<boolean>(true)
+
+  console.log(splineLoad)
+
+  useEffect(() => {
+    setTimeout(function(){ 
+      setShowFallback(false)
+    }, 4000);
+  }, [splineLoad])
+
+console.log('showfallback', showFallback)
 
   const router = useRouter()
 
@@ -17,6 +33,9 @@ const Home: NextPage = () => {
       })
  }, 1000);
 }
+
+const Spline = React.lazy(() => import('@splinetool/react-spline'));
+
   return (
     <Section>
       <Title>
@@ -27,9 +46,12 @@ const Home: NextPage = () => {
           <p>CHECK D<span><Image src='/images/desk.png' width='22px' height='38px' alt='desk'></Image></span>SK OUT</p>
         </StyledButton>
       </Title>
-      <Animation>
-        <Spline scene="https://prod.spline.design/zdiY1j0MFRfdisjV/scene.splinecode" />
-      </Animation>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Animation>
+          {showFallback === true &&<ImageFallback src='/images/fallback.png' height='360px' width='780px'></ImageFallback>}
+          <Spline scene="https://prod.spline.design/zdiY1j0MFRfdisjV/scene.splinecode" onLoad={() => setSplineLoad(true)}/>
+        </Animation>
+      </Suspense>
     </Section>
   )
 }
@@ -177,5 +199,14 @@ const Animation = styled.section`
       left: 50%;
       transform: translate(-50%, -50%);
     }
+  }
+`
+
+const ImageFallback = styled(Image)`
+  width: 200vw;
+  background-color: red;
+
+  &:hover {
+    zoom: 200%;
   }
 `

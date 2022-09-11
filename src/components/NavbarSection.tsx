@@ -32,6 +32,7 @@ export const NavbarSection = ({setMenuPopup, menuPopup}:Props) => {
       <Menu>
         {windowWidth && windowWidth > 575 ? 
           <>
+            <Link href="/">HOME</Link>
             <Link href="/maps">MAPS</Link>
             <Link href="/about">ABOUT</Link>
             <Link href="/contact">CONTACT</Link>
