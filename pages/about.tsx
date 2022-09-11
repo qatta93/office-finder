@@ -97,7 +97,7 @@ const Notepad = styled.section`
   
 
 
-  @media only screen and (min-width: 578px) {
+  @media only screen and (min-width: 576px) {
     margin-top: 4rem;
     height: 400px;
     min-width: 50vw;

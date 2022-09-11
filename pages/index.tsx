@@ -9,25 +9,21 @@ const Home: NextPage = () => {
   const [splineLoad, setSplineLoad] = useState<boolean>(false);
   const [showFallback, setShowFallback] = useState<boolean>(true)
 
-  console.log(splineLoad)
-
   useEffect(() => {
     setTimeout(function(){ 
       setShowFallback(false)
     }, 4000);
   }, [splineLoad])
 
-console.log('showfallback', showFallback)
 
   const router = useRouter()
 
   function onBtnClickHandle(){
-    console.log('its working')
     setTimeout(function(){ 
       router.push({
         pathname: '/maps',
       })
- }, 1000);
+ }, 0);
 }
 
 const Spline = React.lazy(() => import('@splinetool/react-spline'));
