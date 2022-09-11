@@ -42,16 +42,16 @@ const Spline = React.lazy(() => import('@splinetool/react-spline'));
         <h1>Are you traveling?</h1>
         <h2>Do you need a comfy desk?</h2>
         <p>find your new office close to you!</p>
-        <StyledButton onClick={() => onBtnClickHandle()}>
+        {/* <StyledButton onClick={() => onBtnClickHandle()}>
           <p>CHECK D<span><Image src='/images/desk.png' width='22px' height='38px' alt='desk'></Image></span>SK OUT</p>
-        </StyledButton>
+        </StyledButton> */}
       </Title>
-      <Suspense fallback={<div>Loading...</div>}>
+      {/* <Suspense fallback={<div>Loading...</div>}>
         <Animation>
           {showFallback === true &&<ImageFallback src='/images/fallback.png' height='360px' width='780px'></ImageFallback>}
           <Spline scene="https://prod.spline.design/zdiY1j0MFRfdisjV/scene.splinecode" onLoad={() => setSplineLoad(true)}/>
         </Animation>
-      </Suspense>
+      </Suspense> */}
     </Section>
   )
 }

@@ -15,4 +15,7 @@ export default Maps;
 
 const Section = styled.section`
   padding: 0.5rem;
+  &>* {
+    color: white;
+  }
 `
