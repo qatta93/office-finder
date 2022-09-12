@@ -40,13 +40,16 @@ const About: NextPage = () => {
 export default About;
 
 const Graphic = styled.section`
-  padding: 0 3rem 0 0;
+  padding: 0 1rem 0 3rem;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 300px;
   min-width: 30vw;
   max-width: 40vw;
-  margin: auto 0;
-  opacity: 0.7;
+  margin: 3rem auto;
+  opacity: 0.8;
 
   @media only screen and (min-width: 1200px) {
     height: 400px;
@@ -81,7 +84,6 @@ const Wrapper = styled.section`
   padding-bottom: 2rem;
   height: calc(100vh - 257px);
 }
-
 `
 
 const Notepad = styled.section`
@@ -94,8 +96,6 @@ const Notepad = styled.section`
   min-width: 50vw;
   max-width: 70vw;
   margin: 0 auto;
-  
-
 
   @media only screen and (min-width: 576px) {
     margin-top: 4rem;
@@ -116,8 +116,6 @@ const Notepad = styled.section`
     margin-top: 2rem;
     height: 450px;
   }
-  }
-
 
   p {
     font-family: 'Cormorant Garamond', serif;
@@ -169,5 +167,4 @@ const Notepad = styled.section`
       color: black;
     }
   }
-
 `

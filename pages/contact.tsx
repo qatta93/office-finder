@@ -1,8 +1,20 @@
 import type { NextPage } from 'next'
+import { useState } from 'react';
 import styled from 'styled-components';
 
 
 const Contact: NextPage = () => {
+
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+
+  const handleSubmit = (event:React.SyntheticEvent): void => {
+    setName('')
+    setEmail('')
+    setMessage('')
+    event.preventDefault();
+  }
 
   return (
     <Section>
@@ -10,23 +22,29 @@ const Contact: NextPage = () => {
       <p>Would you like to rent your office out?</p>
       <p>Do you have any other questions?</p>
       <p>Do not hesitate to contact us!</p>
-      <Form >
+      <form onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Your name"
         name="name"
         required
+        onChange={event => setName(event.target.value)}
+        value={name}
       />
       <input
         type="email"
         placeholder="Email"
         name="email"
         required
+        onChange={event => setEmail(event.target.value)}
+        value={email}
       />
       <textarea
         placeholder="Tell me everything..."
         name="message"
         required
+        onChange={event => setMessage(event.target.value)}
+        value={message}
       />
       <button
         type="submit"
@@ -34,7 +52,7 @@ const Contact: NextPage = () => {
       >
         send
       </button>
-    </Form>
+    </form>
     </Section>
   )
 }
@@ -79,9 +97,8 @@ const Section = styled.section`
   @media only screen and (min-width: 1200px) {
     padding: 0.5rem 3rem;
   }
-`
 
-const Form = styled.section`
+  form {
   display: flex;
   flex-direction: column;
   width: 80%;
@@ -101,6 +118,12 @@ const Form = styled.section`
     border: none;
     box-shadow: inset 2px 2px 5px #b8b9be,inset -8px -8px 15px #fff!important;
     border-radius: 0.8rem;
+
+    @media only screen and (min-width: 768px) {
+        margin: 0.5rem 0;
+        padding: 1.2rem 1.4rem;
+        font-size: 1rem;
+    }
   }
 
   textarea {
@@ -120,5 +143,13 @@ const Form = styled.section`
     color: #4D535F;
     padding-left: 0;
     cursor: pointer;
+    box-shadow: 2px 2px 2px #b8b9be, -2px -2px 15px #fff!important;
+
+    @media only screen and (min-width: 768px) {
+      margin-top: 1.5rem;
+      height: 3.5rem;
   }
+  }
+}
+
 `

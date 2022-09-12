@@ -30,7 +30,7 @@ export const NavbarSection = ({setMenuPopup, menuPopup}:Props) => {
         <Link href="/"><h1>Office Finder</h1></Link>
       </section>
       <Menu>
-        {windowWidth && windowWidth > 575 ? 
+        {windowWidth && windowWidth > 620 ? 
           <>
             <Link href="/">HOME</Link>
             <Link href="/maps">MAPS</Link>
@@ -87,5 +87,10 @@ const Menu = styled.section`
     border: 1px solid #ffffff40;
     padding: 0.4rem 0.5rem;
     cursor: pointer;
+
+    &:hover {
+      background-color: white;
+      color: #a0a2e5;
+    }
   }
 `
