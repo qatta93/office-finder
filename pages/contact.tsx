@@ -49,7 +49,7 @@ const Contact: NextPage = () => {
         value={message}
       />
       { sendMessage === true?
-        <p>Your message was sent!</p>
+        <p>Thank you. Your message was sent!</p>
         :
       <button
         type="submit"

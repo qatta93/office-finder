@@ -115,6 +115,7 @@ const Title = styled.section`
 
     h1 {
       font-size: 40px;
+      margin-top: 3rem;
     }
   
     h2 {
@@ -124,7 +125,7 @@ const Title = styled.section`
   
     p {
       font-size: 1.2rem;
-      margin: 3rem 0;
+      margin: 2rem 0;
     }
   }
 `
