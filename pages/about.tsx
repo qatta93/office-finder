@@ -25,7 +25,12 @@ const About: NextPage = () => {
         <Wrapper>
           <Notepad>
             <Image src='/images/notepad.png' alt='notepad' layout="fill"></Image>
-            <p>Office Finder can help you with finding comfortable space to work! Are you traveling? Don't you have a comfy desk at home? Check our <Link href='/maps' className='link'>maps</Link> to find offices close to you.</p>
+            <section>
+              <p>Office Finder can help you with finding comfortable space to work!</p> 
+              <p>Are you traveling?</p>
+              <p>Don't you have a comfy desk at home?</p>
+              <p>Check our <Link href='/maps' className='link'>maps</Link> to find offices close to you.</p>
+            </section>
           </Notepad>
           {windowWidth && windowWidth > 1023 
           && 
@@ -97,6 +102,9 @@ const Notepad = styled.section`
   max-width: 70vw;
   margin: 0 auto;
 
+  @media only screen and (min-width: 480px) {
+    height: 400px;
+  }
   @media only screen and (min-width: 576px) {
     margin-top: 4rem;
     height: 400px;
@@ -117,54 +125,72 @@ const Notepad = styled.section`
     height: 450px;
   }
 
-  p {
+  section {
     font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
     font-weight: 600;
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 45%;
     transform: translate(-50%, -50%);
-    width: 180px;
-    text-align: center justify;
-    text-align: justify;
-    font-size: 1.1rem;
-    line-height: 1.5rem;
-    color: #565656cf;
-    text-indent: 1.5rem;
+    width: 200px;
+    text-align: center;
 
     @media only screen and (min-width: 480px) {
       width: 250px;
-      left: 47%;
-      font-size: 1.3rem;
-      line-height: 1.7rem;
+      left: 45%;
     }
     @media only screen and (min-width: 578px) {
       width: 300px;
       left: 44%;
-      font-size: 1.5rem;
-      line-height: 1.9rem;
     }
     @media only screen and (min-width: 768px) {
       left: 45%;
-      font-size: 1.7rem;
-      line-height: 2.2rem;
     }
     @media only screen and (min-width: 1024px) {
       width: 300px;
-      font-size: 1.4rem;
-      line-height: 2rem;
     }
     @media only screen and (min-width: 1200px) {
       left: 43%;
       width: 350px;
+    }
+
+    &>* {
+      margin: 0.6rem 0;
+      color: #787878;
+      font-size: 1.1rem;
+      line-height: 1.3rem;
+
+      @media only screen and (min-width: 480px) {
+      font-size: 1.3rem;
+      line-height: 1.7rem;
+    }
+    @media only screen and (min-width: 578px) {
+      font-size: 1.5rem;
+      line-height: 1.9rem;
+    }
+    @media only screen and (min-width: 768px) {
+      font-size: 1.7rem;
+      line-height: 2.2rem;
+    }
+    @media only screen and (min-width: 1024px) {
+      font-size: 1.3rem;
+      line-height: 1.8rem;
+    }
+    @media only screen and (min-width: 1200px) {
       font-size: 1.6rem;
       line-height: 2.2rem;
     }
 
-    &>* {
-      font-weight: bold;
-      color: black;
+      a {
+        text-decoration: none;
+        font-weight: bold;
+        background-color: #a0a2e566;
+        padding: 0.1rem 0.3rem;
+        margin: 0 0.2rem;
+        cursor: pointer;
+      }
     }
+
+  
   }
 `
