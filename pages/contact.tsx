@@ -8,11 +8,13 @@ const Contact: NextPage = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+  const [sendMessage, setSendMessage] = useState(false);
 
   const handleSubmit = (event:React.SyntheticEvent): void => {
     setName('')
     setEmail('')
     setMessage('')
+    setSendMessage(true)
     event.preventDefault();
   }
 
@@ -46,12 +48,16 @@ const Contact: NextPage = () => {
         onChange={event => setMessage(event.target.value)}
         value={message}
       />
+      { sendMessage === true?
+        <p>Your message was sent!</p>
+        :
       <button
         type="submit"
         value="Download CTA"
       >
         send
       </button>
+      }
     </form>
     </Section>
   )
@@ -149,6 +155,10 @@ const Section = styled.section`
       margin-top: 1.5rem;
       height: 3.5rem;
   }
+  }
+
+  p {
+    color: #E1FDFF;
   }
 }
 
