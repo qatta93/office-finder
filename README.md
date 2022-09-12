@@ -23,8 +23,8 @@ This app is for you! Different locations. Find the closest one.
 
 ## Screenshots
 <img src="./screenshots/mobile.png" width="200">
-<img src="./screenshots/tablet.png" width="400">
-<img src="./screenshots/desktop.png" width="700">
+<img src="./screenshots/tablet.png" width="300">
+<img src="./screenshots/desktop.png" width="500">
 
 ## Project Status
 The project is currently on progress, and some additional features will be included in the future.
