@@ -2,7 +2,6 @@ import type { NextPage } from 'next'
 import { useState } from 'react';
 import styled from 'styled-components';
 
-
 const Contact: NextPage = () => {
 
   const [name, setName] = useState('')

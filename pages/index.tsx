@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Image from 'next/image';
 import { useRouter } from 'next/router'
 import React, { lazy, Suspense, useEffect, useState } from 'react'
+import { gsap } from "gsap";
 
 const Home: NextPage = () => {
 
@@ -19,11 +20,14 @@ const Home: NextPage = () => {
   const router = useRouter()
 
   function onBtnClickHandle(){
+    gsap.set(".btnText", {opacity: 1});
+    gsap.to(".btnText", {duration: 0.8,  opacity: 0});
+    gsap.set(".imageWrapper", {delay: 1, duration: 0.4, width:"25px", height:'45px', rotation:90});
     setTimeout(function(){ 
       router.push({
         pathname: '/maps',
       })
- }, 0);
+ }, 2000);
 }
 
 const Spline = React.lazy(() => import('@splinetool/react-spline'));
@@ -35,7 +39,11 @@ const Spline = React.lazy(() => import('@splinetool/react-spline'));
         <h2>Do you need a comfy desk?</h2>
         <p>find your new office close to you!</p>
         <StyledButton onClick={() => onBtnClickHandle()}>
-          <p>CHECK D<span><Image src='/images/desk.png' width='22px' height='38px' alt='desk'></Image></span>SK OUT</p>
+          <p className='btnText'>CHECK D</p>
+          <div className='imageWrapper'>
+          <Image className='btnImage' src='/images/desk.png' layout="fill" alt='desk'></Image>
+          </div>
+          <p className='btnText'>SK OUT</p>
         </StyledButton>
       </Title>
       <Suspense fallback={<div>Loading...</div>}>
@@ -132,6 +140,9 @@ const Title = styled.section`
 
 const StyledButton = styled.section`
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 60px;
   width: 180px;
   margin: 0 auto;
@@ -144,15 +155,15 @@ const StyledButton = styled.section`
     font-family: 'Antonio', sans-serif;
     font-size: 1.5rem;
     margin: 0;
-
-    span{
-      margin: 0 0.02rem 0 0.05rem;
-
-      &>* {
-        top: 9px;
-      }
-    }
   }
+
+  .imageWrapper {
+    width: 22px;
+    height: 38px;
+    position: relative;
+    margin: 0.3rem 0.02rem 0 0.05rem;
+  }
+
 
   &:hover {
     transform: scale(1.08);

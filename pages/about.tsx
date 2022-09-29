@@ -67,6 +67,7 @@ const Section = styled.section`
   background-image: url("images/paper.png");
   background-size: auto 100%;
   background-size: cover;
+  overflow: scroll;
 
 
   h1 {
@@ -190,7 +191,5 @@ const Notepad = styled.section`
         cursor: pointer;
       }
     }
-
-  
   }
 `
