@@ -69,6 +69,9 @@ const Section = styled.section`
   background-size: cover;
   overflow: scroll;
 
+  &::-webkit-scrollbar {
+  display: none;
+  }
 
   h1 {
     text-align: center;

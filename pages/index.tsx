@@ -22,12 +22,12 @@ const Home: NextPage = () => {
   function onBtnClickHandle(){
     gsap.set(".btnText", {opacity: 1});
     gsap.to(".btnText", {duration: 0.8,  opacity: 0});
-    gsap.set(".imageWrapper", {delay: 1, duration: 0.4, width:"25px", height:'45px', rotation:90});
+    gsap.set(".imageWrapper", {delay: 0.8, duration: 0.4, width:"25px", height:'45px', rotation:90});
     setTimeout(function(){ 
       router.push({
         pathname: '/maps',
       })
- }, 2000);
+ }, 1800);
 }
 
 const Spline = React.lazy(() => import('@splinetool/react-spline'));
@@ -46,7 +46,8 @@ const Spline = React.lazy(() => import('@splinetool/react-spline'));
           <p className='btnText'>SK OUT</p>
         </StyledButton>
       </Title>
-      <Suspense fallback={<div>Loading...</div>}>
+      {/* <Suspense fallback={<div>Loading...</div>}> */}
+      <Suspense>
         <Animation>
           {showFallback === true &&<ImageFallback src='/images/fallback.png' height='360px' width='780px'></ImageFallback>}
           <Spline scene="https://prod.spline.design/zdiY1j0MFRfdisjV/scene.splinecode" onLoad={() => setSplineLoad(true)}/>
@@ -62,6 +63,10 @@ export default Home
 const Section = styled.section`
   overflow: hidden;
   min-height: 70vh;
+
+  &::-webkit-scrollbar {
+  display: none;
+  }
 
   @media only screen and (min-width: 1024px) {
     display: flex;

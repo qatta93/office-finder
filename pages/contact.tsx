@@ -72,10 +72,9 @@ const Section = styled.section`
   background-size: auto 100%;
   background-size: cover;
 
-  @media only screen and (min-width: 1200px) {
-    overflow: hidden;
+  &::-webkit-scrollbar {
+  display: none;
   }
-
 
   h1 {
     text-align: center;
