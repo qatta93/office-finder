@@ -44,6 +44,7 @@ const Maps: NextPage = () => {
   return (
     <Section>
         <h1>Maps</h1>
+        <h2>Page is still in progress</h2>
         {/* <Form>
           <form onSubmit={handleSubmit}>
             <input
@@ -97,6 +98,12 @@ const Section = styled.section`
     @media only screen and (min-width: 576px) {
       margin-bottom: 2rem;
     }
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: 4rem;
+    font-weight: 200;
   }
 `
 
