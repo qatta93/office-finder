@@ -44,36 +44,34 @@ const Maps: NextPage = () => {
   return (
     <Section>
         <h1>Maps</h1>
-        <h2>Page is still in progress</h2>
-        {/* <Form>
+        <h2>Provide your current location to see the closest offices on the map</h2>
+        <Form>
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              placeholder="Origin"
+              placeholder="Your Location"
               name="origin"
               required
               onChange={event => setOrigin(event.target.value)}
               value={origin}
             />
-            <input
+            {/* <input
               type="text"
-              placeholder="Destination"
+              placeholder="Office"
               name="destination"
               required
               onChange={event => setDestination(event.target.value)}
               value={destination}
-            />
+            /> */}
             <button
               type="submit"
               value="Download CTA"
             >
-              Calculate Route
+              Let's go!
             </button>
-            <p>Distance:</p>
-            <p>Duration:</p>
           </form>
         </Form>
-        <GoogleMap center={center} zoom={15} mapContainerStyle={{width: '100%', height: '100%'}}>
+        {/* <GoogleMap center={center} zoom={15} mapContainerStyle={{width: '100%', height: '100%'}}>
 
         </GoogleMap> */}
         {/* <div id='map'></div> */}
@@ -89,6 +87,10 @@ const Section = styled.section`
   height: calc(100vh - 130px);
   overflow: scroll;
 
+  &::-webkit-scrollbar {
+  display: none;
+  }
+
   h1 {
     text-align: center;
     font-size: 1.7rem;
@@ -102,10 +104,32 @@ const Section = styled.section`
 
   h2 {
     text-align: center;
-    margin-top: 4rem;
+    margin: 1rem 0 2rem;
     font-weight: 200;
+    font-size: 1rem;
+    color: white;
   }
 `
 
 const Form = styled.section`
+  display: flex;
+  justify-content: center;
+
+  input {
+    padding: .7rem 1rem;
+    margin-right: 1rem;
+    background-color: rgba(255, 255, 255, 0.705);
+    border: none;
+    box-shadow: inset 2px 2px 5px #b8b9be,inset -8px -8px 15px #fff!important;
+    border-radius: 0.8rem;
+  }
+
+  button {
+    padding: .7rem 1rem;
+    margin-right: 1rem;
+    background-color: #E1FDFF;
+    border: none;
+    box-shadow: 1px 1px 5px #b8b9be, 1px 1px 15px #fff!important;
+    border-radius: 0.8rem;
+  }
 `
