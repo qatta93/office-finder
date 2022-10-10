@@ -10,7 +10,17 @@ const center = { lat: 59.911491, lng: 10.757933}
 const Maps: NextPage = () => {
 
   const [origin, setOrigin] = useState('')
+  const [coordinates, setCoordinates] = useState<Object>({lat: '', long: ''})
   const [destination, setDestination] = useState('')
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setCoordinates({lat: position.coords.latitude, long: position.coords.longitude})
+    })
+  }, [])
+
+  console.log(coordinates)
+
 
   const handleSubmit = (event:React.SyntheticEvent): void => {
     event.preventDefault();
@@ -38,8 +48,8 @@ const Maps: NextPage = () => {
 //     initMap();
 
 //   }, [])
-  
 
+  
 
   return (
     <Section>
@@ -131,5 +141,6 @@ const Form = styled.section`
     border: none;
     box-shadow: 1px 1px 5px #b8b9be, 1px 1px 15px #fff!important;
     border-radius: 0.8rem;
+    cursor: pointer;
   }
 `
