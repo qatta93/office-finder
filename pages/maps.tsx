@@ -1,17 +1,23 @@
 /* global google */
 import type { NextPage } from 'next'
 import styled from 'styled-components';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
-import { SetStateAction, useCallback, useEffect, useState } from 'react';
+import {useEffect, useState } from 'react';
+import Axios from "axios";
 
-const center = { lat: 59.911491, lng: 10.757933}
+// const center = { lat: 59.911491, lng: 10.757933}
+
+const test = () => {
+  return 0;
+}
 
 
-const Maps: NextPage = () => {
-
-  const [origin, setOrigin] = useState('')
+const Maps: NextPage = (props) => {
   const [coordinates, setCoordinates] = useState<Object>({lat: '', long: ''})
-  const [destination, setDestination] = useState('')
+  const [origin, setOrigin] = useState('')
+  
+  console.log(coordinates)
+  console.log(origin)
+  console.log(props)
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -19,37 +25,15 @@ const Maps: NextPage = () => {
     })
   }, [])
 
-  console.log(coordinates)
+  useEffect(() => {
+    // fetch data to get a location name based on coordinates
 
+    
+  }, [coordinates])
 
   const handleSubmit = (event:React.SyntheticEvent): void => {
     event.preventDefault();
   }
-
-  const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!,
-    libraries: ['places'],
-  })
-
-  if(isLoaded){
-    console.log('el')
-  }
-
-//   useEffect(() => {
-// /* global google */
-//     let map;
-
-//     function initMap() {
-//             map = new window.google!.maps.Map(document.getElementById("map") as HTMLElement, {
-//             center: { lat: -34.397, lng: 150.644 },
-//             zoom: 8,
-//         });
-//     }
-//     initMap();
-
-//   }, [])
-
-  
 
   return (
     <Section>
@@ -65,14 +49,6 @@ const Maps: NextPage = () => {
               onChange={event => setOrigin(event.target.value)}
               value={origin}
             />
-            {/* <input
-              type="text"
-              placeholder="Office"
-              name="destination"
-              required
-              onChange={event => setDestination(event.target.value)}
-              value={destination}
-            /> */}
             <button
               type="submit"
               value="Download CTA"
@@ -80,17 +56,19 @@ const Maps: NextPage = () => {
               Let's go!
             </button>
           </form>
-        </Form>
-        {/* <GoogleMap center={center} zoom={15} mapContainerStyle={{width: '100%', height: '100%'}}>
-
-        </GoogleMap> */}
-        {/* <div id='map'></div> */}
-        
+        </Form>  
     </Section>
   )
 }
 
 export default Maps;
+
+export const getStaticProps = async () => {
+  const res = await Axios.get(`http://api.openweathermap.org/geo/1.0/reverse?lat=51.2465&lon=22.5684&limit=1&appid=${process.env.NEXT_PUBLIC_GEOCODING_API_KEY}`);
+  return {
+    props: { data: `${res.data[0].name}, ${res.data[0].country}` },
+  };
+};
 
 const Section = styled.section`
   padding: 0.5rem;

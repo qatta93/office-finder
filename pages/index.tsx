@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import styled from 'styled-components'
 import Image from 'next/image';
 import { useRouter } from 'next/router'
-import React, { lazy, Suspense, useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import { gsap } from "gsap";
 
 const Home: NextPage = () => {

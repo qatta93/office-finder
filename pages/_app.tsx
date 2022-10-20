@@ -13,8 +13,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="description" content="Find your new office" />
         <link rel="icon" href="/images/worker_purple.png" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;300;500;700&family=Cormorant+Garamond:wght@400;600;800&family=Open+Sans:wght@300;400;500&display=swap" />
-        {/* <script async defer src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&callback=initMap`} type="text/javascript"></script> */}
         <script src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`}></script>
+        <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDd1Cx1rB7gsPMr4AhhbuOBu2bW67osZBA'></script>
       </Helmet>
       <Layout>
         <GlobalCSS />
