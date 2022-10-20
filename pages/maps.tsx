@@ -1,23 +1,14 @@
-/* global google */
 import type { NextPage } from 'next'
 import styled from 'styled-components';
 import {useEffect, useState } from 'react';
-import Axios from "axios";
 
 // const center = { lat: 59.911491, lng: 10.757933}
 
-const test = () => {
-  return 0;
-}
-
-
-const Maps: NextPage = (props) => {
-  const [coordinates, setCoordinates] = useState<Object>({lat: '', long: ''})
+const Maps: NextPage = () => {
+  const [coordinates, setCoordinates] = useState({lat: 0, long: 0})
   const [origin, setOrigin] = useState('')
-  
-  console.log(coordinates)
+
   console.log(origin)
-  console.log(props)
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -27,8 +18,13 @@ const Maps: NextPage = (props) => {
 
   useEffect(() => {
     // fetch data to get a location name based on coordinates
-
-    
+    if(coordinates.lat !== 0 && coordinates.long !== 0){
+      fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${coordinates.lat}&lon=${coordinates.long}&limit=1&appid=${process.env.NEXT_PUBLIC_GEOCODING_API_KEY}`)
+      .then((res) => res.json())
+      .then((data) => {
+      setOrigin(`${data[0].name}, ${data[0].country}`);
+      });
+    }
   }, [coordinates])
 
   const handleSubmit = (event:React.SyntheticEvent): void => {
@@ -47,7 +43,7 @@ const Maps: NextPage = (props) => {
               name="origin"
               required
               onChange={event => setOrigin(event.target.value)}
-              value={origin}
+              value={coordinates.lat !== 0 ? origin : ''}
             />
             <button
               type="submit"
@@ -62,13 +58,6 @@ const Maps: NextPage = (props) => {
 }
 
 export default Maps;
-
-export const getStaticProps = async () => {
-  const res = await Axios.get(`http://api.openweathermap.org/geo/1.0/reverse?lat=51.2465&lon=22.5684&limit=1&appid=${process.env.NEXT_PUBLIC_GEOCODING_API_KEY}`);
-  return {
-    props: { data: `${res.data[0].name}, ${res.data[0].country}` },
-  };
-};
 
 const Section = styled.section`
   padding: 0.5rem;
