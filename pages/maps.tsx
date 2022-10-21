@@ -1,11 +1,17 @@
 import type { NextPage } from 'next'
 import styled from 'styled-components';
 import {useEffect, useState } from 'react';
-
-// const center = { lat: 59.911491, lng: 10.757933}
+import ReactMapGL from 'react-map-gl'
 
 const Maps: NextPage = () => {
-  const [coordinates, setCoordinates] = useState({lat: 0, long: 0})
+  const [coordinates, setCoordinates] = useState({lat: 59.911491, long: 10.757933})
+  const [viewport, setViewport] = useState({
+    latitude: coordinates.lat,
+    longitude: coordinates.long,
+    width: '100vw',
+    height: '300px',
+    zoom: 10
+  })
   const [origin, setOrigin] = useState('')
 
   console.log(origin)
@@ -18,7 +24,7 @@ const Maps: NextPage = () => {
 
   useEffect(() => {
     // fetch data to get a location name based on coordinates
-    if(coordinates.lat !== 0 && coordinates.long !== 0){
+    if(coordinates.lat !== 59.911491 && coordinates.long !== 10.757933){
       fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${coordinates.lat}&lon=${coordinates.long}&limit=1&appid=${process.env.NEXT_PUBLIC_GEOCODING_API_KEY}`)
       .then((res) => res.json())
       .then((data) => {
@@ -30,6 +36,8 @@ const Maps: NextPage = () => {
   const handleSubmit = (event:React.SyntheticEvent): void => {
     event.preventDefault();
   }
+
+
 
   return (
     <Section>
@@ -52,7 +60,10 @@ const Maps: NextPage = () => {
               Let's go!
             </button>
           </form>
-        </Form>  
+        </Form>
+        <ReactMapGL {...viewport} mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN} mapStyle="mapbox://styles/mapbox/streets-v9">
+
+        </ReactMapGL>
     </Section>
   )
 }
@@ -91,6 +102,7 @@ const Section = styled.section`
 const Form = styled.section`
   display: flex;
   justify-content: center;
+  margin-bottom: 3rem;
 
   input {
     padding: .7rem 1rem;
