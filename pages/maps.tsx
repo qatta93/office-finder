@@ -8,8 +8,6 @@ const Maps: NextPage = () => {
   const [viewport, setViewport] = useState({
     latitude: coordinates.lat,
     longitude: coordinates.long,
-    width: '100vw',
-    height: '300px',
     zoom: 10
   })
   const [origin, setOrigin] = useState('')
@@ -61,7 +59,11 @@ const Maps: NextPage = () => {
             </button>
           </form>
         </Form>
-        <ReactMapGL {...viewport} mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN} mapStyle="mapbox://styles/mapbox/streets-v9">
+        <ReactMapGL 
+          {...viewport} 
+          mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN} 
+          mapStyle="mapbox://styles/mapbox/streets-v9"
+        >
 
         </ReactMapGL>
     </Section>
