@@ -39,33 +39,33 @@ const Maps: NextPage = () => {
 
   return (
     <Section>
-        <h1>Maps</h1>
-        <h2>Provide your current location to see the closest offices on the map</h2>
-        <Form>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Your Location"
-              name="origin"
-              required
-              onChange={event => setOrigin(event.target.value)}
-              value={coordinates.lat !== 0 ? origin : ''}
-            />
-            <button
-              type="submit"
-              value="Download CTA"
-            >
-              Let's go!
-            </button>
-          </form>
-        </Form>
-        <ReactMapGL 
-          {...viewport} 
-          mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN} 
-          mapStyle="mapbox://styles/mapbox/streets-v9"
-        >
-
-        </ReactMapGL>
+      <h1>Maps</h1>
+      <h1 className='page'>Opps.. The page is still under construction!</h1>
+      <h2>Provide your current location to see the closest offices on the map</h2>
+      <Form>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Your Location"
+            name="origin"
+            required
+            onChange={event => setOrigin(event.target.value)}
+            value={coordinates.lat !== 0 ? origin : ''}
+          />
+          <button
+            type="submit"
+            value="Download CTA"
+          >
+            Let's go!
+          </button>
+        </form>
+      </Form>
+      <ReactMapGL 
+        {...viewport} 
+        mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN} 
+        mapStyle="mapbox://styles/mapbox/streets-v9"
+      >
+      </ReactMapGL>
     </Section>
   )
 }
@@ -79,6 +79,11 @@ const Section = styled.section`
 
   &::-webkit-scrollbar {
   display: none;
+  }
+
+  .page {
+    color: red;
+    font-weight: 500;
   }
 
   h1 {
