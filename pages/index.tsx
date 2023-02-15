@@ -49,7 +49,7 @@ const Spline = React.lazy(() => import('@splinetool/react-spline'));
       {/* <Suspense fallback={<div>Loading...</div>}> */}
       <Suspense>
         <Animation>
-          {showFallback === true &&<ImageFallback src='/images/fallback.png' height='360px' width='780px'></ImageFallback>}
+          {showFallback === true &&<ImageFallback src='/images/fallback.png' height='500px' width='833px'></ImageFallback>}
           <Spline scene="https://prod.spline.design/zdiY1j0MFRfdisjV/scene.splinecode" onLoad={() => setSplineLoad(true)}/>
         </Animation>
       </Suspense>
